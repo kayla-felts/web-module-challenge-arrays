@@ -40,13 +40,14 @@ To save you from having to count the items above, you can assume that length of 
 
 i.e. is31Flavors(originalFlavors) will return TRUE.*/
 
-function is31Flavors(originalFlavors){
-if(originalFlavors.length === 31){
-    return 'true';
-}else{
-    return 'false';
-}
-}
+function is31Flavors(arr){
+    if(arr.length === 31){
+      return 'true';
+    }else{
+      return 'false';
+    }
+  }console.log(is31Flavors(originalFlavors))
+
 
 /* Task 2: Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
 
@@ -59,11 +60,10 @@ Your function should add the flavor to the front of the array and console.log th
 
 For example addFlavor("Rainbow Sherbert", originalFlavors) should return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"] */ 
 
-function addFlavor(originalFlavors){
-    originalFlavors.unshift("Rainbow Sherbert");
-    return originalFlavors;
-    }
-    console.log(addFlavor(originalFlavors))
+function addFlavor(arr,flavor){
+    return arr.unshift(flavor)
+  }
+  console.log(addFlavor(originalFlavors,'Rainbow Sherebrt'))
 
 /* Task 3: Houston, we have a problem! There are now 32 flavors in the array! Your task is to remove an item from the end of the array. 
 
@@ -75,12 +75,10 @@ Your function should remove a flavor from the end of the array and console.log t
 
 For example removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]*/ 
 
-function removeLastFlavor(addFlavor){
-    originalFlavors.pop();
-    return addFlavor(originalFlavors);
+function removeLastFlavor(arr){
+    return arr.pop()
   }
-  
-  console.log(removeLastFlavor(addFlavor))
+  console.log(removeLastFlavor(originalFlavors))
   
 
 
@@ -112,14 +110,10 @@ Hint: You can use .splice() for this
 
 */
 
-function removeFlavorByName(arr, type){
-    for(let 1 = 0; i < arr.length; i++){
-        if(arr[i].includes(type)){
-            return arr[i];
-        }
-    }
-}
-console.log(removeFlavorByName(originalFlavors, 'Vanilla'))
+function removeFlavorByName(arr,flavor){
+    return arr.splice(arr.indexOf(flavor))
+  }
+  console.log(removeFlavorByName(originalFlavors, 'Vanilla'))
 
 
 /* Task 6: With all of these changes going on, we don't want to lose track of the actual, original 31 flavors. Write a function called copy that makes a copy of the array. 
@@ -130,7 +124,7 @@ Your function should accept:
 
 and should return a new array that is identical to the old array. You can name the new array however you'd like. */
 
-function copy(/*code here*/){
+function copy(first, second){
 
     /*code here*/
 
@@ -151,12 +145,12 @@ DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem.
 
 hint - you can use the .includes method to help you solve this */
 
-function filterByWord(arrThree, string){
-if(arrThree.includes(string)){
-    return string
-}
-}
- console.log(filterByWord(OriginalFlavors, "Chocolate"))
+function filterByWord(arr, query){
+    return arr.filter(function(el){
+      return el.toLowerCase().indexOf(query.toLowerCase()) !== -1
+    })
+    }
+  console.log(filterByWord(originalFlavors, 'Chocolate'))
 
 
 /* 🧁🍦🍨 STRETCH 🍨🍦🍫*/ 
